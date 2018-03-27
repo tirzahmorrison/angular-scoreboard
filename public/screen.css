@@ -68,7 +68,7 @@ font-weight: 900;
 @media (min-width: 960px){
   body {
     
-    background-image: url("Batman-ArkhamKnight.png"), url("Verypanther.png");
+    background-image: url("images/Batman-ArkhamKnight.png"), url("images/Verypanther.png");
     background-repeat: no-repeat, no-repeat;
     background-position-x: left, right;
     background-position-x: left 10%, right 10%;

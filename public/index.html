@@ -12,7 +12,7 @@
 
 
 
-<body>
+<body ng-app="Angular-Scoreboard" ng-controller="mainController">
 
 
   <section class="container">
@@ -20,10 +20,10 @@
     <section id="navbar">
       <h1>Hero's Score Board </h1>
       <section class="quarters">
-        <p>1</p>
+        <p>{{currentQuarter}}</p>
         <section>
-        <button class="reset">Reset</button>
-        <button class="next">Next</button>
+        <button ng-click="resetQuarter()" class="reset">Reset</button>
+        <button ng-click="nextQuarter()" class="next">Next</button>
       </section>
       </section>
     </section>
@@ -32,44 +32,44 @@
 
       <section class="blackpanther scoreboard">
         <div class="top">
-          <h3>Team 1</h3>
-          <p>0</p>
+          <h3>{{teamOneName}}</h3>
+          <p>{{teamOneScore}}</p>
         </div>
 
 
         <div class="middle">
-          <label for="q">Update Team 1 Name</label>
-          <input type="Search" class="myUpdate" name="q">
-          <button>Update</button>
+          <label for="q">Update {{teamOneName}} Name</label>
+          <input type="Search" class="myUpdate" name="q" ng-model="teamOneNewName">
+          <button ng-click="updateTeamOneName()">Update</button>
         </div>
 
 
         <div class="bottom">
-          <label>Update Team 1 Score</label>
-          <input class="plusone" type="submit" value="Add 1">
-          <input class="minusone" type="submit" value="Subtract 1">
+          <label>Update {{teamOneName}} Score</label>
+          <input ng-click="teamOnePlusOne()" class="plusone" type="submit" value="Add 1">
+          <input ng-click="teamOneMinusOne()" class="minusone" type="submit" value="Subtract 1">
         </div>
       </section>
 
 
       <section class="batman scoreboard">
         <div class="top">
-          <h3>Team 2</h3>
-          <p>0</p>
+          <h3>{{teamTwoName}}</h3>
+          <p>{{teamTwoScore}}</p>
         </div>
 
 
         <div class="middle">
-          <label for="q">Update Team 2 Name</label>
-          <input type="Search" class="myUpdate" name="q">
-          <button>Update</button>
+          <label for="q">Update {{teamTwoName}} Name</label>
+          <input type="Search" class="myUpdate" name="q" ng-model="teamTwoNewName">
+          <button ng-click="updateTeamTwoName()">Update</button>
         </div>
 
 
         <div class="bottom">
-          <label>Update Team 2 Score</label>
-          <input class="plusone" type="submit" value="Add 1">
-          <input class="minusone" type="submit" value="Subtract 1">
+          <label>Update {{teamTwoName}} Score</label>
+          <input ng-click="teamTwoPlusOne()"class="plusone" type="submit" value="Add 1">
+          <input ng-click="teamTwoPlusOne()"class="minusone" type="submit" value="Subtract 1">
         </div>
 
       </section>
@@ -84,7 +84,7 @@
   
   
   
-  
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="/main.js" charset="utf-8"></script>
   </body>
   

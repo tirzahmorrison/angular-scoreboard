@@ -1,10 +1,65 @@
-const quarters = ["1","2","3","4","OT"]
+const quarters = ["1", "2", "3", "4", "OT"]
 
-function nextQuarter(el){
+angular
+  .module("Angular-Scoreboard", [])
+  .controller("mainController", ($scope) => {
+    $scope.currentQuarter = quarters[0]
+    $scope.nextQuarter = () => {
+      const quarterIndex = quarters.indexOf($scope.currentQuarter)
+      if (quarterIndex === quarters.length - 1) { return }
+      $scope.currentQuarter = quarters[quarterIndex + 1]
+    }
+
+    $scope.resetQuarter = () => {
+      $scope.currentQuarter = quarters[0]
+    }
+
+    $scope.teamOneName = "Team 1"
+    $scope.teamOneScore = 0
+    $scope.updateTeamOneName = () => {
+      $scope.teamOneName = $scope.teamOneNewName
+    }
+
+    $scope.teamOnePlusOne = () => {
+      $scope.teamOneScore++
+    }
+
+    $scope.teamOneMinusOne = () => {
+      $scope.teamOneScore--
+    }
+
+    $scope.teamTwoName = "Team 2"
+    $scope.teamTwoScore = 0
+
+    $scope.updateTeamTwoName = () => {
+      $scope.teamTwoName = $scope.teamTwoNewName
+    }
+
+    $scope.teamTwoPlusOne = () => {
+      $scope.teamTwoScore++
+    }
+
+    $scope.teamTwoMinusOne = () => {
+      $scope.teamTwoScore--
+    }
+
+  })
+
+
+
+
+
+
+/*function nextQuarter(el){
   const currentQuarter = el.querySelector("p")
   const quarterIndex = quarters.indexOf(currentQuarter.innerText)
   if(quarterIndex === quarters.length - 1) { return }
-  currentQuarter.innerText = quarters[quarterIndex+1] 
+  currentQuarter.innerText = quarters[quarterIndex+1]  el.querySelector(".middle button").addEventListener("click", function(){
+    console.log("clicked")
+    const newName = el.querySelector(".myUpdate").value
+    name.innerText = newName
+  })
+
 }
 
 function bindScoreboard(el){
@@ -12,12 +67,7 @@ function bindScoreboard(el){
   const score = el.querySelector(".top p"),
         name = el.querySelector(".top h3")
                   
-  el.querySelector(".middle button").addEventListener("click", function(){
-    console.log("clicked")
-    const newName = el.querySelector(".myUpdate").value
-    name.innerText = newName
-  })
-
+ 
   el.querySelector(".plusone").addEventListener("click", function(){
     console.log("plusone clicked")
     const oldScore = Number(score.innerText)
@@ -83,4 +133,4 @@ document.addEventListener('DOMContentLoaded', function(){
   bindQuarters(quarters)
 
   setInterval(runTimer, 1000)
-})
+}) */
